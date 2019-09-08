@@ -11,7 +11,7 @@
     <ion-list class="inputBlock">
       <ion-item margin-bottom class="textBlock">
         <ion-label position="floating">message</ion-label>
-        <ion-input name="message" required [ngModel]="message" type="text"></ion-input>
+        <ion-input name="message" required [(ngModel)]="message" type="text"></ion-input>
       </ion-item>
       <ion-button type="submit" expand="full" block class="submit" [disabled]="!f.form.valid">
         throw message
@@ -19,7 +19,7 @@
     </ion-list>
   </form>
 
-  <ion-card class ="singlePost" *ngFor="let p of posts; let i=index">
+  <ion-card class ="singlePost" *ngFor="let p of posts">
     <ion-item>
       <h2 padding-vertical>{{p.userName}}</h2>
     </ion-item>
@@ -33,13 +33,13 @@
           </ion-button>
         </ion-col>
         <ion-col size="6" size-sm>
-          <ion-button fill="clear" size="small" (click)="presentPrompt(i)">
+          <ion-button fill="clear" size="small" (click)="presentPrompt(p)">
             <ion-icon name="create"></ion-icon>
             <div>update</div>
           </ion-button>
         </ion-col>
         <ion-col size="6" size-sm>
-          <ion-button fill="clear" size="small" (click)="deletePost(i)">
+          <ion-button fill="clear" size="small" (click)="deletePost(p)">
             <ion-icon name="text"></ion-icon>
             <div>delete</div>
           </ion-button>
@@ -50,4 +50,8 @@
       </ion-row>
     </ion-card-content>
   </ion-card>
+
+  <ion-button class="subLink" (click) = "gotoSignup()" fill="clear">
+    login
+  </ion-button>
 </ion-content>
