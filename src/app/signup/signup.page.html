@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>account register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item class="signupHeader" lines="none" text-center>
+    <ion-label>
+      <h1>messageBoard</h1>
+      <p>Let's register account</p>
+    </ion-label>
+  </ion-item>
+  <form #f="ngForm" class="signupForm">
+    <ion-item class="formItem">
+      <ion-label position="floating">
+        <ion-icon name ="mail"></ion-icon>
+        mail Adress
+      </ion-label>
+      <ion-input required email [(ngModel)]="signup.email" type="email" name="signup.email"></ion-input>
+    </ion-item>
+    <ion-item class="formItem">
+      <ion-label position="floating">
+        <ion-icon name ="key" padding-right></ion-icon>
+        PassWord
+      </ion-label>
+      <ion-input required [(ngModel)]="signup.password" type="password" name="signup.password"></ion-input>
+    </ion-item>
+
+    <ion-item class="formItem">
+      <ion-label position="floating">
+        <ion-icon name="person" padding-right>name</ion-icon>
+      </ion-label>
+      <ion-input required [(ngModel)]="signup.name" type ="text" name="signup.name"></ion-input>
+    </ion-item>
+
+    <ion-button class="submitBtn" [disabled]="!f.form.valid" (click)="signUp()" size="large" expand="block">
+      register account
+    </ion-button>
+  </form>
+
+  <ion-button class="submitLink" (click)="goBack()" fill="clear">
+    If you have already gotten account, you click here!
+  </ion-button>
+</ion-content>
